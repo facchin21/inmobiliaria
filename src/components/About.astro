@@ -1,0 +1,54 @@
+---
+import imageAbout from "../assets/about.jpg";
+import { Picture } from "astro:assets";
+import Button from "./Button.astro";
+---
+
+<div
+  class="w-full py-8 flex flex-col md:flex-row gap-8 items-center justify-center"
+>
+  <div class="flex w-3/4 flex-col md:flex-row items-start">
+    <header class="w-3/4 mx-auto animate-on-fadeLeft">
+      <h1 class="text-4xl lg:text-6xl font-semibold text-center md:text-start">
+        ¿Quienes somos?
+      </h1>
+      <p
+        class="md:w-2/4 text-lg lg:text-2xl font-light my-4 text-center md:text-start"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vitae
+        rem, odio facere, expedita illo explicabo unde tempore reprehenderit
+        omnis deserunt mollitia qui dicta, iste esse totam impedit neque soluta?
+      </p>
+      <div class="flex items-center justify-center md:justify-start">
+        <Button link="about" name="ver mas" />
+      </div>
+    </header>
+    <div>
+      <Picture
+        src={imageAbout}
+        formats={["avif", "webp", "jpg"]}
+        alt={"Imagen de una casa con una señora"}
+        class=`h-96 w-96 rounded-md overflow-hidden shadow-md 
+          shadow-gray-200 2xl:w-[60rem] 2xl:h-auto animate-on-fadeBomb`
+        `
+      />
+    </div>
+  </div>
+</div>
+
+<script>
+  import { AnimatedFunction } from "../functions/animated";
+
+  // Ejecutar las animaciones cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => {
+    AnimatedFunction({
+      classe: ".animate-on-fadeLeft",
+      animate: "animate-fadeLeft",
+    });
+
+    AnimatedFunction({
+      classe: ".animate-on-fadeBomb",
+      animate: "animate-fadeBomb",
+    });
+  });
+</script>

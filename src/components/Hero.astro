@@ -1,0 +1,26 @@
+---
+import imageBackground from "../assets/background-hero.png";
+import Button from "../components/Button.astro";
+import { Picture } from "astro:assets";
+---
+<div
+    class="w-full py-8 flex flex-col md:flex-row justify-center items-center md:justify-start pb-12"
+  >
+    <div class="flex w-3/4 flex-col md:flex-row items-center justify-center md:items-start md:justify-start">
+      <Picture
+        src={imageBackground}
+        formats={["avif", "webp"]}
+        alt={"Imagen de fondo"}
+        class=`w-full md:w-2/4 mx-auto rounded-md overflow-hidden
+      shadow-md shadow-gray-200`
+      />
+      <header class="text-center md:text-start mt-4 w-full">
+        <h1 class="text-3xl md:text-5xl">Bienvenidos a</h1>
+        <h2 class="text-2xl md:text-4xl">Doble FF</h2>
+        <span class="text-lg md:text-2xl">Inmobiliarias</span>
+        <div>
+          <Button link="about" name="ver mas"/>
+        </div>
+      </header>
+    </div>
+  </div>

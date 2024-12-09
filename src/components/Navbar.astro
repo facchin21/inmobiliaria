@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Home from "../icons/Home.astro";
+const items = [
+  {
+    id: "01",
+    name: "Propiedades",
+    link: "/properties",
+  },
+  {
+    id: "02",
+    name: "Sobre Nosotros",
+    link: "/about",
+  },
+  {
+    id: "03",
+    name: "Contacto",
+    link: "/contact",
+  },
+];
+---
+
+<nav class="w-full flex items-center justify-center">
+  <ul
+    class="flex flex-col md:flex-row items-center justify-center gap-4 py-4 md:w-2/4 w-full
+	   2xl:w-1/4 bg-slate-800 md:mt-6 md:rounded-full"
+  >
+    <li>
+      <Home link="/" />
+    </li>
+    {
+      items.map((item) => (
+        <li
+          key={item.id}
+          class="transition-all duration-300 hover:-translate-y-1"
+        >
+          <a
+            href={item.link}
+            class="text-white text-lg transition-all
+			duration-300 hover:text-teal-600"
+          >
+            {item.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
